@@ -1,3 +1,6 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/gpio/gpio.h>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -15,29 +18,27 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-direct";
-        label = "KSCAN";
         input-gpios
-            = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 1번: 031 */
-            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 2번: 029 */
-            , <&gpio0 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 3번: 006 */
-            , <&gpio0 8  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 4번: 008 */
-            , <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 5번: 017 */
-            , <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 6번: 002 */
-            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 7번: 115 */
-            , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 8번: 020 */
-            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 9번: 022 */
-            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 10번: 024 */
-            , <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 11번: 009 */
-            , <&gpio1 0  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 12번: 100 */
-            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)> /* 13번(인코더 누름): 113 */
+            = <&gpio0 31 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 29 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 8  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 17 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 2  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 20 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 22 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 24 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 0  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
     };
 
     left_encoder: encoder_left {
         compatible = "alps,ec11";
-        label = "LEFT_ENCODER";
-        a-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; /* 회전 A: 111 */
-        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; /* 회전 B: 010 */
+        a-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <80>;
         status = "okay";
     };
@@ -51,8 +52,7 @@
     leds {
         compatible = "gpio-leds";
         status_led: led_0 {
-            gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>; /* 상태 LED: 011 */
-            label = "Status LED";
+            gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
         };
     };
 };
