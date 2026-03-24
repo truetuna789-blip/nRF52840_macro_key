@@ -27,7 +27,6 @@
             <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
 
         debounce-press-ms = <5>;
-        debounce-release-ms = <5>;
     };
 
     default_transform: matrix_transform_0 {
@@ -51,6 +50,7 @@
     sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder_0>;
+        triggers-per-rotation = <20>;   // ⭐ 중요
     };
 };
 
