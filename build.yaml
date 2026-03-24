@@ -1,4 +1,4 @@
 ---
 include:
-  - board: nice_nano
+  - board: nice_nano//zmk
     artifact-name: 13key_macropad
