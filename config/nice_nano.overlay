@@ -39,6 +39,19 @@
             RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11) RC(0,12)
         >;
     };
+
+    encoder_0: encoder_0 {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;
+        status = "okay";
+    };
+
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder_0>;
+    };
 };
 
 &uicr {
