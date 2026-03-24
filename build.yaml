@@ -1,4 +1,4 @@
 ---
 include:
   - board: nice_nano
-    artifact-name: nfr52840_macropad_13key
+    artifact-name: 13key_macropad
