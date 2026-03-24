@@ -5,10 +5,17 @@
 / {
     keymap {
         compatible = "zmk,keymap";
+
         default_layer {
+            display-name = "Base";
+
             bindings = <
-                &bt BT_CLR &kp A &kp B &kp C &kp D &kp E &kp F &kp G &kp H &kp I &kp J &kp K &kp L
+                &kp ESC       &kp TAB       &kp C_PREV    &kp C_PP      &kp C_NEXT
+                &kp C_MUTE    &kp C_VOL_DN  &kp C_VOL_UP  &kp CUT       &kp COPY
+                &kp PASTE     &kp UNDO      &bt BT_CLR
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
