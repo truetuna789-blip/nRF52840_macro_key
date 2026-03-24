@@ -8,13 +8,50 @@
         compatible = "zmk,keymap";
 
         base_layer {
+            display-name = "BASE";
             bindings = <
-                &kp N1         &kp N2         &kp N3         &kp N4         &kp N5
-                &kp N6         &kp N7         &kp N8         &kp N9         &kp N0
-                &bt BT_CLR_ALL &out OUT_BLE   &bt BT_SEL 4
+                &kp N1          &kp N2          &kp N3          &kp N4          &kp N5
+                &kp N6          &kp N7          &kp N8          &kp N9          &kp N0
+                &kp F11         &kp F12         &lt 1 ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        bt_layer {
+            display-name = "BT";
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans
+                &kp F11         &kp F12         &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_out_ble {
+            timeout-ms = <60>;
+            key-positions = <10 11>;   /* 11번 + 12번 */
+            layers = <1>;
+            bindings = <&out OUT_BLE>;
+        };
+
+        combo_bt_sel_1 {
+            timeout-ms = <60>;
+            key-positions = <11 12>;   /* 12번 + 13번 */
+            layers = <1>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
+        combo_bt_clear_all {
+            timeout-ms = <60>;
+            key-positions = <10 12>;   /* 11번 + 13번 */
+            layers = <1>;
+            bindings = <&bt BT_CLR_ALL>;
         };
     };
 };
